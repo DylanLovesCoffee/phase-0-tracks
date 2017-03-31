@@ -13,3 +13,5 @@
 
 * What is a merge conflict?
 * A merge conflict is when a merge fails due to certain changes that don't correspond in the file. This could either be that differentiating changes were made to the same line, or that a change was made to a file that was deleted.
+
+## That basically sums it up.

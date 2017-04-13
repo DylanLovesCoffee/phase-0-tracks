@@ -1,0 +1,23 @@
+#contact-info {
+  font-size: .8em;
+}
+
+.job {
+  background-color: #e9e5dc;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 35px;
+}
+
+.responsibilities {
+  font-size: .8em;
+}
+
+#email:hover {
+  font-size: 1.5em;
+  color: orange;
+}
+
+#volunteer-experience h3 {
+  border: dotted;
+}

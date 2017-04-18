@@ -1,0 +1,30 @@
+Robot Elevator
+- list all of the floors that are accessible by the elevator
+  - Receive the passenger's designated floor
+- Select the respective floor or floors
+  - If no floors are received by the passenger, ask again
+- Continue to stop by the selected floors in ascending order
+- Stop at the highest floor given by a passenger and repeat in descending order
+- Stop at the highest floor given by a passenger and repeat in ascending order
+
+Real-Life Algorithm (Cleaning the apartment floor)
+- Does the apartment look dirty?
+  - If 'true', grab your vacuum cleaner.
+  - If 'false', sit back down on your sofa.
+- Turn on your vacuum cleaner and start in your living room.
+  - Is your living room clean?
+    - If 'true', continue to the hallway.
+    - If 'false', use the mop.
+  - Is your hallway clean?
+    - If 'true', continue to the kitchen.
+    - If 'false', use the mop.
+  - Is your kitchen clean?
+    - If 'true', continue to the bathroom.
+    - If 'false', use the mop.
+  - Is your bathroom clean?
+    - If 'true', continue to the bedroom.
+    - If 'false', use the mop.
+  - Is your bedroom clean?
+    - If 'true', put away your vacuum cleaner and mop.
+    - If 'false', use the mop.
+- Stop cleaning and admire your spotless apartment floor.

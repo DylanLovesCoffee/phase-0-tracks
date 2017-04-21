@@ -12,13 +12,14 @@ until x == 0
   garlic = gets.chomp
   puts "Would you like to enroll in the company's health insurance? (y/n)"
   insurance = gets.chomp
-  puts "Are you allergic to anything? (type 'done' to finish)"
-  allergies = gets.chomp
+
   loop {
     puts "Are you allergic to anything? (type 'done' to finish)"
     allergies = gets.chomp
-    break if allergies == "done"
-    break if allergies == "sunshine"
+    break if allergies == "done" || allergies == "sunshine"
+    if allergies == "sunshine"
+      puts "Definitely a vampire."
+    end
   }
 
   if age.to_i > 95
@@ -45,12 +46,8 @@ until x == 0
     puts "Probably a vampire."
   elsif age && garlic && insurance == false
     puts "Almost certainly a vampire."
-  elsif name == "Drake Cula"
+  elsif name == "Drake Cula" || name = "Tu Fang"
     puts "Definitely a vampire."
-  elsif name == "Tu Fang"
-    puts "Definitely a vampire."
-  elsif allergies == "sunshine"
-    puts "Probably a vampire."
   else
     puts "Results inconclusive."
   end

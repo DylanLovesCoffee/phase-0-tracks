@@ -1,0 +1,33 @@
+h1{
+	background-image: url("https://assets-cdn.github.com/images/modules/logos_page/Octocat.png");
+	background-size: 30% 20%;
+}
+
+header p{
+	background-color:grey;
+	padding: 1%;
+}
+
+.column-1{
+	background-color:blue;
+	float:left;
+	width:48%;
+	box-sizing:border-box;
+	padding:5%;
+	border:2px solid black;
+	margin:1%;
+}
+
+.column-2{
+	background-color:green;
+	float:right;
+	width:48%;
+	box-sizing:border-box;
+	padding:5%;
+	border:2px solid black;
+	margin:1%;
+}
+
+.wrap{
+	overflow:auto;
+}

@@ -38,4 +38,6 @@ westeros_co = {
   }
 }
 
-p westeros_co
+p westeros_co[:finance][:accountant][0]
+p westeros_co[:sales][:director][:managing_director]
+p westeros_co[:product][:engineer]

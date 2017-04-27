@@ -9,8 +9,8 @@ spy_name = gets.chomp
 
 
 scrambled_name = spy_name.downcase.split('')
-p scrambled_name
 
+# ---VOWEL CONVERTER---
 def next_vowel(input)
   input.map! do |letter|
     vowel_hash = {
@@ -36,8 +36,7 @@ def next_vowel(input)
   end
 end
 
-p next_vowel(scrambled_name)
-
+# ---CONSONANT CONVERTER---
 def next_consonant(input)
   input.map! do |letter|
     consonant_hash = {
@@ -57,7 +56,7 @@ def next_consonant(input)
       letter = consonant_hash.fetch(:n)
     elsif letter == 't'
       letter = consonant_hash.fetch(:t)
-    elsif letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u'
+    elsif letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u' || letter == ' '
       letter
     else
       letter.next
@@ -65,7 +64,7 @@ def next_consonant(input)
   end
 end
 
-p next_consonant(scrambled_name)
+next_vowel(scrambled_name)
+next_consonant(scrambled_name)
 
-new_name = scrambled_name.join('').split(' ').reverse
-p new_name
+p new_name = scrambled_name.join('').split(' ').reverse!

@@ -58,13 +58,19 @@ end
 # knight.defend
 
 warrior_army = []
-
 counter = 0
+
 while counter < 50
   puts "Name your warrior: (type 'done' to quit)"
   warrior_name = gets.chomp
   break if warrior_name == 'done'
   warrior_name = Warrior.new
+  warrior_army.push(warrior_name)
   counter += 1
   puts "You currently have #{counter} warriors."
 end
+
+warrior_army.each { |warrior|
+  warrior.defend
+  warrior.attack("ogre")
+}

@@ -67,4 +67,40 @@ end
 next_vowel(scrambled_name)
 next_consonant(scrambled_name)
 
-p new_name = scrambled_name.join('').split(' ').reverse!
+new_name = scrambled_name.join('').split(' ').reverse!
+
+new_name.map! { |name|
+  name.capitalize
+}
+
+agent_alias = new_name.join(' ')
+
+
+puts "Your alias is #{agent_alias}."
+
+puts "What name would you like to scramble? (type 'quit' to exit)"
+name_input = gets.chomp
+
+database = []
+database.push(agent_alias)
+
+until name_input == 'quit'
+  name_output = name_input.downcase.split('')
+  next_vowel(name_output)
+  next_consonant(name_output)
+
+  new_name = name_output.join('').split(' ').reverse!
+
+  new_name.map! { |name|
+    name.capitalize
+  }
+
+  agent_alias = new_name.join(' ')
+  puts "Your alias is #{agent_alias}."
+  database.push(agent_alias)
+
+  puts "What name would you like to scramble? (type 'quit' to exit)"
+  name_input = gets.chomp
+end
+
+puts "#{spy_name}'s current aliases are: #{database}."

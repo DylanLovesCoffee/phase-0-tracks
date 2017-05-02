@@ -1,4 +1,6 @@
 class Santa
+  attr_reader :age, :ethnicity
+  attr_accessor :gender
 
   def initialize(gender, ethnicity)
     puts 'Initializing Santa instance...'
@@ -17,15 +19,11 @@ class Santa
   end
 
   def celebrate_birthday
-    new_age = @age + 1
+    @age = @age + 1
   end
 
   def get_mad_at(reindeer)
     @reindeer_ranking.insert(-1, (@reindeer_ranking.delete(reindeer)))
-  end
-
-  def gender=(new_gender)
-    @gender = new_gender
   end
 
 end
@@ -37,7 +35,9 @@ robot_santa.speak
 robot_santa.eat_milk_and_cookies('chocolate chip')
 robot_santa.celebrate_birthday
 robot_santa.get_mad_at("Vixen")
-robot_santa.gender = 'female'
+p robot_santa.gender = 'female'
+p robot_santa.age
+p robot_santa.ethnicity
 
 # santas = []
 # gender_options = ['male', 'female', 'transgender', 'prefer not to say', 'N/A']

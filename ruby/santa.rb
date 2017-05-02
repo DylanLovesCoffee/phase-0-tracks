@@ -1,6 +1,6 @@
 class Santa
-  attr_reader :age, :ethnicity
-  attr_accessor :gender
+  attr_reader :ethnicity
+  attr_accessor :gender, :age
 
   def initialize(gender, ethnicity)
     puts 'Initializing Santa instance...'
@@ -29,20 +29,36 @@ class Santa
 end
 
 # TEST CODE
-robot_santa = Santa.new('male', 'Latino')
+# robot_santa = Santa.new('male', 'Latino')
+# robot_santa.speak
+# robot_santa.eat_milk_and_cookies('chocolate chip')
+# robot_santa.celebrate_birthday
+# robot_santa.get_mad_at("Vixen")
+# p robot_santa.gender = 'female'
+# p robot_santa.age
+# p robot_santa.ethnicity
 
-robot_santa.speak
-robot_santa.eat_milk_and_cookies('chocolate chip')
-robot_santa.celebrate_birthday
-robot_santa.get_mad_at("Vixen")
-p robot_santa.gender = 'female'
-p robot_santa.age
-p robot_santa.ethnicity
+# SANTA DEMOGRAPHICS
+gender_options = ['male', 'female', 'transgender', 'prefer not to say', 'N/A']
+ethnicity_options = ['white', 'black', 'east asian', 'south asian', 'latino', 'native american', 'pacific islander', 'one with the world', 'outer dimensional']
 
+# SANTA DEMOGRAPHIC SAVER
 # santas = []
-# gender_options = ['male', 'female', 'transgender', 'prefer not to say', 'N/A']
-# ethnicity_options = ['white', 'black', 'east asian', 'south asian', 'latino', 'native american', 'one with the world', 'outer dimensional']
-#
 # gender_options.length.times { |option|
 #   santas.push(Santa.new(gender_options[option], ethnicity_options[option]))
 # }
+
+puts "Name your santa: (type 'done' to exit)"
+santa_name = gets.chomp
+santa_age = (0..140).to_a
+
+while santa_name != 'done'
+  santa_name = Santa.new(gender_options.sample, ethnicity_options.sample)
+  santa_name.age = santa_age.sample
+  p "Gender: #{santa_name.gender}"
+  p "Ethnicity: #{santa_name.ethnicity}"
+  p "Age: #{santa_name.age}"
+
+  puts "Name your santa: (type 'done' to exit)"
+  santa_name = gets.chomp
+end

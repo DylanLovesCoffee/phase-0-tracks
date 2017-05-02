@@ -1,42 +1,42 @@
-# class Puppy
-#
-#   def fetch(toy)
-#     puts "I brought back the #{toy}!"
-#     toy
-#   end
-#
-#   def speak(integer)
-#     integer.times {
-#       puts "Woof!"
-#     }
-#   end
-#
-#   def roll_over
-#     puts "*rolls over*"
-#   end
-#
-#   def dog_years(human_years)
-#     dog_age = human_years / 7
-#     puts "I'm #{dog_age} years old!"
-#   end
-#
-#   def lie_down
-#     puts "*sploot*"
-#   end
-#
-#   def initialize
-#     puts "Initialiing new puppy instance..."
-#   end
-#
-# end
-#
-# paco = Puppy.new
-#
-# paco.fetch('squeaky corndog')
-# paco.speak(5)
-# paco.roll_over
-# paco.dog_years(35)
-# paco.lie_down
+class Puppy
+
+  def fetch(toy)
+    puts "I brought back the #{toy}!"
+    toy
+  end
+
+  def speak(integer)
+    integer.times {
+      puts "Woof!"
+    }
+  end
+
+  def roll_over
+    puts "*rolls over*"
+  end
+
+  def dog_years(human_years)
+    dog_age = human_years / 7
+    puts "I'm #{dog_age} years old!"
+  end
+
+  def lie_down
+    puts "*sploot*"
+  end
+
+  def initialize
+    puts "Initialiing new puppy instance..."
+  end
+
+end
+
+paco = Puppy.new
+
+paco.fetch('squeaky corndog')
+paco.speak(5)
+paco.roll_over
+paco.dog_years(35)
+paco.lie_down
 
 class Warrior
 
@@ -53,9 +53,9 @@ class Warrior
   end
 end
 
-# knight = Warrior.new
-# knight.attack('Black Knight')
-# knight.defend
+knight = Warrior.new
+knight.attack('Black Knight')
+knight.defend
 
 warrior_army = []
 counter = 0

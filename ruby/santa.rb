@@ -28,7 +28,7 @@ class Santa
 
 end
 
-# TEST CODE
+# TEST CODE ------------
 # robot_santa = Santa.new('male', 'Latino')
 # robot_santa.speak
 # robot_santa.eat_milk_and_cookies('chocolate chip')
@@ -37,6 +37,7 @@ end
 # p robot_santa.gender = 'female'
 # p robot_santa.age
 # p robot_santa.ethnicity
+# ----------------------
 
 # SANTA DEMOGRAPHICS
 gender_options = ['male', 'female', 'transgender', 'prefer not to say', 'N/A']
@@ -48,6 +49,7 @@ ethnicity_options = ['white', 'black', 'east asian', 'south asian', 'latino', 'n
 #   santas.push(Santa.new(gender_options[option], ethnicity_options[option]))
 # }
 
+# UI
 puts "Name your santa: (type 'done' to exit)"
 santa_name = gets.chomp
 santa_age = (0..140).to_a

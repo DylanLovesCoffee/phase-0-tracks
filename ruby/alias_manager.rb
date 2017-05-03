@@ -9,8 +9,13 @@ spy_name = gets.chomp
 
 
 scrambled_name = spy_name.downcase.split('')
+<<<<<<< HEAD
+p scrambled_name
+
+=======
 
 # ---VOWEL CONVERTER---
+>>>>>>> 9435ab30fabc0d5f72788885a4a20cd8771e9836
 def next_vowel(input)
   input.map! do |letter|
     vowel_hash = {
@@ -36,7 +41,12 @@ def next_vowel(input)
   end
 end
 
+<<<<<<< HEAD
+p next_vowel(scrambled_name)
+
+=======
 # ---CONSONANT CONVERTER---
+>>>>>>> 9435ab30fabc0d5f72788885a4a20cd8771e9836
 def next_consonant(input)
   input.map! do |letter|
     consonant_hash = {
@@ -56,7 +66,11 @@ def next_consonant(input)
       letter = consonant_hash.fetch(:n)
     elsif letter == 't'
       letter = consonant_hash.fetch(:t)
+<<<<<<< HEAD
+    elsif letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u'
+=======
     elsif letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u' || letter == ' '
+>>>>>>> 9435ab30fabc0d5f72788885a4a20cd8771e9836
       letter
     else
       letter.next
@@ -64,6 +78,12 @@ def next_consonant(input)
   end
 end
 
+<<<<<<< HEAD
+p next_consonant(scrambled_name)
+
+new_name = scrambled_name.join('').split(' ').reverse
+p new_name
+=======
 next_vowel(scrambled_name)
 next_consonant(scrambled_name)
 
@@ -104,3 +124,4 @@ until name_input == 'quit'
 end
 
 puts "#{spy_name}'s current aliases are: #{database}."
+>>>>>>> 9435ab30fabc0d5f72788885a4a20cd8771e9836

@@ -80,3 +80,12 @@ add_item(grocery_list_hash, "Ice_Cream", 4)
 remove_item(grocery_list_hash, "Lemonade")
 modify_item(grocery_list_hash, "Ice_Cream", 1)
 print_list(grocery_list_hash)
+
+
+# REFLECTION
+# I learned that pseudocoding is a huge part of the coding process. Especially when working with a partner and working through something more complex than we thought, it was incredibly helpful to have some guidelines to follow and keep us on track.
+# The tradeoff of using arrays and hashes together was turning an array into a hash, which proved to be much more challenging than expected.
+# A method returns the last line declared.
+# You can pass methods in to a method as an argument.
+# You can pass information between methods by calling a method as an argument. What we had also done was create a hash outside of our methods that we could call on.
+# I feel that the importance of pseudocoding got through to me in this challenge.

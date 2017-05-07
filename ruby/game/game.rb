@@ -1,19 +1,26 @@
 # Game class
 class Game
-  attr_accessor :hidden_answer, :guess_count
+  attr_accessor :hidden_answer, :guess_count, :used_letters
 
   def initialize(secret_word)
     @guess_count = 0
     @answer = secret_word.downcase.split('')
     @hidden_answer = ["_"] * secret_word.length
+    @used_letters = []
   end
 
   def check_answer(letter)
     @guess_count += 1
     letter_index = @answer.index(letter)
-    if @answer.include?("#{letter}") == true
+
+    if @used_letters.include?(letter) == true
+      @guess_count -= 1
+    elsif @answer.include?(letter) == true
       @hidden_answer.delete_at(letter_index)
       @hidden_answer.insert(letter_index, letter)
+      @used_letters.push(letter)
+    else !@answer.include?(letter)
+      @used_letters.push(letter)
     end
   end
 end

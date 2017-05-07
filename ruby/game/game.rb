@@ -1,5 +1,6 @@
 # Game class
 class Game
+  attr_reader :answer
   attr_accessor :hidden_answer, :guess_count, :used_letters
 
   def initialize(secret_word)
@@ -12,7 +13,6 @@ class Game
   def check_answer(letter)
     @guess_count += 1
     letter_index = @answer.index(letter)
-
     if @used_letters.include?(letter) == true
       @guess_count -= 1
     elsif @answer.include?(letter) == true
@@ -36,13 +36,16 @@ puts "You have #{guesses_left} guesses."
 while new_game.guess_count != guesses_left
   puts "What letter would you like to guess?"
   guess = gets.chomp
-  if new_game.check_answer(guess)
-    p "You got one! Keep trying!"
-    p "Guesses Left: #{guesses_left - new_game.guess_count}"
-    p new_game.hidden_answer
-  else
-    p "Oof, try again."
-    p "Guesses Left: #{guesses_left - new_game.guess_count}"
-    p new_game.hidden_answer
+  new_game.check_answer(guess)
+  p "Guesses Left: #{guesses_left - new_game.guess_count}"
+  p new_game.hidden_answer
+  if guess.downcase == new_game.answer.join
+    puts "You did it!"
+    break
+  elsif new_game.hidden_answer == new_game.answer
+    break
+    puts "You did it!"
+  elsif new_game.guess_count == guesses_left
+    puts "Ya dun goof'd!"
   end
 end

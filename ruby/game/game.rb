@@ -21,18 +21,21 @@ end
 # driver
 puts 'What word would you like to enter?'
 input = gets.chomp
+guesses_left = input.length + 3
 new_game = Game.new(input)
 
-puts "You have #{input.length + 3} guesses."
+puts "You have #{guesses_left} guesses."
 
-while new_game.guess_count != (input.length + 3)
+while new_game.guess_count != guesses_left
   puts "What letter would you like to guess?"
   guess = gets.chomp
   if new_game.check_answer(guess)
     p "You got one! Keep trying!"
+    p "Guesses Left: #{guesses_left - new_game.guess_count}"
     p new_game.hidden_answer
   else
     p "Oof, try again."
+    p "Guesses Left: #{guesses_left - new_game.guess_count}"
     p new_game.hidden_answer
   end
 end

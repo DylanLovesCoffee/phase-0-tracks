@@ -9,3 +9,11 @@ function reverse(word) {
 }
 
 reverse('hello');
+
+var people = 3;
+
+if (people > 1) {
+  reverse('muffins');
+} else if (people < 1) {
+  reverse('ragoo');
+}

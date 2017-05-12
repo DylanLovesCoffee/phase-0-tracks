@@ -107,3 +107,8 @@ end
 
 #=======================================================================
 # Reflection Section
+# There isn't a huge difference between using hashrockets and symbols in the data, aside from printing a string to the console when using a hashrocket.
+# require_relative allows you to load a file of your choosing and use its properties, however, the require method works better with loading a file where its functionality has been installed in your system
+# You can iterate through each key or value of a hash
+# Before we refactored virus_effects, the "@" on the variables in the parameters stood out the most because that was something we weren't used to seeing
+# I felt that i solidified my understanding of the scope of instances variables

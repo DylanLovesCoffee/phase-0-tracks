@@ -1,3 +1,4 @@
+// OBJECT
 var colors = ['rainbow', 'indigo', 'emerald', 'turquoise'];
 var names = ['Lil Sebastian', 'Biggie', 'Muffin', 'Kevin'];
 
@@ -7,13 +8,15 @@ names.push('Mish');
 var horses = {};
 
 for (var i = 0; i < names.length; i++) {
-  horses[names[i]] = colors[i]
+  horses[names[i]] = colors[i];
 };
 
 
-// DRIVER CODE
-// console.log(horses)
+// DRIVER CODE FOR OBJECTS
+console.log(horses)
 
+
+// CONSTRUCTOR FUCTION
 function Car(model_year, color, has_sunroof) {
   this.model_year = model_year;
   this.color = color;
@@ -29,6 +32,7 @@ function Car(model_year, color, has_sunroof) {
   }
 };
 
+// DRIVER CODE FOR CONSTRUCTOR FUNCTION
 var model_T = new Car(1908, 'black', true);
 
 model_T.accelerate()
@@ -36,3 +40,10 @@ model_T.accelerate()
 var batmobile = new Car(2017, 'jet black', false)
 
 batmobile.accelerate()
+
+// Looping through keys and values of an object
+for (var key in horses) {
+  if (horses.hasOwnProperty(key)) {
+    console.log(key + ', ' + horses[key])
+  }
+}

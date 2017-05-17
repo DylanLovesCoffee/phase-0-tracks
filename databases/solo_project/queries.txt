@@ -1,0 +1,63 @@
+1. DISPLAY INFORMATION IN ONE TABLE:
+sqlite> SELECT * FROM clients
+   ...> ;
+1|Einstein College of Medicine|2500|true|1
+2|Bonobos|4500|false|2
+3|Warby Parker|5000|false|2
+4|Raytheon|12000|false|3
+5|MoMA|4000|true|1
+6|Nintendo|150000|false|4
+
+2. UPDATE ITEM WITH CONDITION STATEMENT:
+sqlite> UPDATE clients SET contract_value=6000 WHERE name='Warby Parker';
+sqlite> SELECT * FROM clients;
+1|Einstein College of Medicine|2500|true|1
+2|Bonobos|4500|false|2
+3|Warby Parker|6000|false|2
+4|Raytheon|12000|false|3
+5|MoMA|4000|true|1
+6|Nintendo|150000|false|4
+
+3. DISPLAY INFO IN BOTH TABLES:
+sqlite> SELECT * FROM clients, tiers WHERE clients.tier_id = tiers.id;
+1|Einstein College of Medicine|2500|true|1|1|Bronze
+2|Bonobos|4500|false|2|2|Silver
+3|Warby Parker|6000|false|2|2|Silver
+4|Raytheon|12000|false|3|3|Gold
+5|MoMA|4000|true|1|1|Bronze
+6|Nintendo|150000|false|4|4|Platinum
+
+4. DISPLAY NARROWER SELECTION OF COLUMNS:
+sqlite> SELECT clients.name, clients.contract_value, tiers.name FROM clients JOIN tiers ON clients.tier_id = tiers.id;
+Einstein College of Medicine|2500|Bronze
+Bonobos|4500|Silver
+Warby Parker|6000|Silver
+Raytheon|12000|Gold
+MoMA|4000|Bronze
+Nintendo|150000|Platinum
+
+5. DELETE AN ITEM THAT MEETS CONDITION:
+sqlite> DELETE FROM clients WHERE churning='true';
+sqlite> SELECT * FROM clients
+   ...> ;
+2|Bonobos|4500|false|2
+3|Warby Parker|6000|false|2
+4|Raytheon|12000|false|3
+6|Nintendo|150000|false|4
+
+- DIFFERENT JOINS -
+
+Inner join:
+sqlite> SELECT clients.name, contract_value FROM clients INNER JOIN tiers ON clients.tier_id = tiers.id;
+Bonobos|4500
+Warby Parker|6000
+Raytheon|12000
+Nintendo|150000
+
+Outer join:
+sqlite> SELECT tiers.name, clients.name FROM tiers LEFT OUTER JOIN clients ON clients.tier_id = tiers.id;
+Bronze|
+Silver|Bonobos
+Silver|Warby Parker
+Gold|Raytheon
+Platinum|Nintendo

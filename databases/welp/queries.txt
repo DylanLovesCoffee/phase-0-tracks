@@ -1,0 +1,25 @@
+1. Join 3 Tables
+sqlite> SELECT * FROM reviews INNER JOIN businesses ON reviews.business_id = businesses.id INNER JOIN users ON reviews.user_id = users.id;
+1|4|Gave them 4/5 stars because I wish they sold burritos too!|1|2|1|Taco Heaven|2|Bobby|Crewneck
+2|2|Needs more pipes.|2|1|2|Piper's Pipes|1|Dylan|Yang
+3|5|Piper's amazing and a true expert in her field!|2|5|2|Piper's Pipes|5|Amanda|Henley
+4|3|Ran out of all of their herbal tea when I got there. Customer service was great, however.|4|3|4|Black Eyed Herbal Teas|3|Mary|Shawl
+5|5|We are too lucky to have animals as companions. Best no kill shelter in the region.|3|6|3|Hawaii Animal Shelter|6|Jordan|Turtleneck
+6|4|Great tacos. Great environment. Can get quite crowded on a Friday night.|1|4|1|Taco Heaven|4|Henry|Romper
+7|5|I started as a volunteer here, and then a foster parent, and ended up adopting several of the dogs I was fostering.|3|1|3|Hawaii Animal Shelter|1|Dylan|Yang
+
+2. User's Name, Business Name, Star Rating, and Comment Only
+sqlite> SELECT businesses.name, users.first_name, users.last_name, reviews.stars, reviews.comment FROM reviews INNER JOIN businesses ON reviews.business_id = businesses.id INNER JOIN users ON reviews.user_id = users.id;
+Taco Heaven|Bobby|Crewneck|4|Gave them 4/5 stars because I wish they sold burritos too!
+Piper's Pipes|Dylan|Yang|2|Needs more pipes.
+Piper's Pipes|Amanda|Henley|5|Piper's amazing and a true expert in her field!
+Black Eyed Herbal Teas|Mary|Shawl|3|Ran out of all of their herbal tea when I got there. Customer service was great, however.
+Hawaii Animal Shelter|Jordan|Turtleneck|5|We are too lucky to have animals as companions. Best no kill shelter in the region.
+Taco Heaven|Henry|Romper|4|Great tacos. Great environment. Can get quite crowded on a Friday night.
+Hawaii Animal Shelter|Dylan|Yang|5|I started as a volunteer here, and then a foster parent, and ended up adopting several of the dogs I was fostering.
+
+3. View Data for All Tables for Just One Business
+sqlite> SELECT businesses.name, reviews.stars, reviews.comment, users.first_name, users.last_name FROM businesses INNER JOIN reviews ON businesses.id = reviews.business_id INNER JOIN users ON reviews.user_id = users.id WHERE businesses.id=2;
+Piper's Pipes|2|Needs more pipes.|Dylan|Yang
+Piper's Pipes|5|Piper's amazing and a true expert in her field!|Amanda|Henley
+sqlite>

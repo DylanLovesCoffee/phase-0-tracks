@@ -71,38 +71,58 @@ puts "4. Update rent payment"
 puts "5. Delete entry"
 input = gets.chomp
 
-if input == '1'
-  puts "What is the tenant's full name?"
-  tenant = gets.chomp
-  puts "What floor is your tenant living on?"
-  floor = gets.chomp
-  puts "How much rent is due?"
-  rent_due = gets.chomp
-  puts "Have they paid their rent? (true/false)"
-  rent_paid = gets.chomp
-  insert_tenant(database, tenant, floor, rent_due, rent_paid)
-  print_table(database)
-elsif input == '2'
-  puts "Which tenant would you like update?"
-  tenant = gets.chomp
-  puts "What is the new tenant name?"
-  new_name = gets.chomp
-  update_name(database, tenant, new_name)
-  print_table(database)
-elsif input == '3'
-  puts "Which tenant would you like to update?"
-  tenant = gets.chomp
-  puts "What is the new rent due?"
-  rent_due = gets.chomp
-  update_rent_due(database, tenant, rent_due)
-  print_table(database)
-elsif input == '4'
-  puts "Which tenant would you like to update?"
-  tenant = gets.chomp
-  puts "Has the rent been paid? (true/false)"
-  rent_paid = gets.chomp
-  update_rent_paid(database, tenant, rent_paid)
-  print_table(database)
-else
-  puts "Please enter a valid number."
+while input != 'quit'
+  if input == '1'
+    puts "What is the tenant's full name?"
+    tenant = gets.chomp
+    puts "What floor is your tenant living on?"
+    floor = gets.chomp
+    puts "How much rent is due?"
+    rent_due = gets.chomp
+    puts "Have they paid their rent? (true/false)"
+    rent_paid = gets.chomp
+    insert_tenant(database, tenant, floor, rent_due, rent_paid)
+    print_table(database)
+  elsif input == '2'
+    puts "Which tenant would you like update?"
+    tenant = gets.chomp
+    puts "What is the new tenant name?"
+    new_name = gets.chomp
+    update_name(database, tenant, new_name)
+    print_table(database)
+  elsif input == '3'
+    puts "Which tenant would you like to update?"
+    tenant = gets.chomp
+    puts "What is the new rent due?"
+    rent_due = gets.chomp
+    update_rent_due(database, tenant, rent_due)
+    print_table(database)
+  elsif input == '4'
+    puts "Which tenant would you like to update?"
+    tenant = gets.chomp
+    puts "Has the rent been paid? (true/false)"
+    rent_paid = gets.chomp
+    update_rent_paid(database, tenant, rent_paid)
+    print_table(database)
+  elsif input == '5'
+    puts "Which tenant would you like to delete?"
+    tenant = gets.chomp
+    puts "Are you sure you would like to delete #{tenant}? (y/n)"
+    delete = gets.chomp
+    if delete == 'y'
+      delete_tenant(database, tenant)
+      print_table(database)
+    else
+      print_table(database)
+    end
+  else
+    puts "Please enter a valid number."
+  end
+  puts "Select the number for the following action (type 'quit' to exit):"
+  puts "1. Add tenant"
+  puts "2. Update tenant name"
+  puts "3. Update rent due"
+  puts "4. Update rent payment"
+  puts "5. Delete entry"
+  input = gets.chomp
 end

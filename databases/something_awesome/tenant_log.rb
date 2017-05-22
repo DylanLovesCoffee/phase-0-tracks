@@ -83,11 +83,25 @@ if input == '1'
   insert_tenant(database, tenant, floor, rent_due, rent_paid)
   print_table(database)
 elsif input == '2'
-  puts "Which tenant name would you like update?"
-  old_name = gets.chomp
+  puts "Which tenant would you like update?"
+  tenant = gets.chomp
   puts "What is the new tenant name?"
   new_name = gets.chomp
-  update_name(database, old_name, new_name)
+  update_name(database, tenant, new_name)
+  print_table(database)
+elsif input == '3'
+  puts "Which tenant would you like to update?"
+  tenant = gets.chomp
+  puts "What is the new rent due?"
+  rent_due = gets.chomp
+  update_rent_due(database, tenant, rent_due)
+  print_table(database)
+elsif input == '4'
+  puts "Which tenant would you like to update?"
+  tenant = gets.chomp
+  puts "Has the rent been paid? (true/false)"
+  rent_paid = gets.chomp
+  update_rent_paid(database, tenant, rent_paid)
   print_table(database)
 else
   puts "Please enter a valid number."

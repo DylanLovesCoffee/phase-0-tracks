@@ -31,6 +31,13 @@ def update_name(db, old_name, new_name)
   )
 end
 
+def update_floor(db, name, floor)
+  db.execute( <<-SQL
+    UPDATE tenants SET floor="#{floor}" WHERE name="#{name}"
+  SQL
+  )
+end
+
 def update_rent_due(db, name, rent)
   db.execute( <<-SQL
     UPDATE tenants SET rent_due="#{rent}" WHERE name="#{name}"
@@ -64,15 +71,16 @@ end
 puts "Welcome! Below are your current tenants:"
 print_table(database)
 puts "Select the number for the following action (type 'quit' to exit):"
-puts "1. Add tenant"
-puts "2. Update tenant name"
+puts "0. Add tenant"
+puts "1. Update tenant name"
+puts "2. Update tenant floor"
 puts "3. Update rent due"
 puts "4. Update rent payment"
 puts "5. Delete entry"
 input = gets.chomp
 
 while input != 'quit'
-  if input == '1'
+  if input == '0'
     puts "What is the tenant's full name?"
     tenant = gets.chomp
     puts "What floor is your tenant living on?"
@@ -83,12 +91,19 @@ while input != 'quit'
     rent_paid = gets.chomp
     insert_tenant(database, tenant, floor, rent_due, rent_paid)
     print_table(database)
-  elsif input == '2'
+  elsif input == '1'
     puts "Which tenant would you like update?"
     tenant = gets.chomp
     puts "What is the new tenant name?"
     new_name = gets.chomp
     update_name(database, tenant, new_name)
+    print_table(database)
+  elsif input == '2'
+    puts "Which tenant would you like to update?"
+    tenant = gets.chomp
+    puts "What is the new floor number?"
+    floor = gets.chomp
+    update_floor(database, tenant, floor)
     print_table(database)
   elsif input == '3'
     puts "Which tenant would you like to update?"
@@ -119,8 +134,9 @@ while input != 'quit'
     puts "Please enter a valid number."
   end
   puts "Select the number for the following action (type 'quit' to exit):"
-  puts "1. Add tenant"
-  puts "2. Update tenant name"
+  puts "0. Add tenant"
+  puts "1. Update tenant name"
+  puts "2. Update tenant floor"
   puts "3. Update rent due"
   puts "4. Update rent payment"
   puts "5. Delete entry"

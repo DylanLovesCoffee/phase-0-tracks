@@ -60,7 +60,7 @@ def delete_tenant(db, name)
 end
 
 # DRIVER CODE
-# 10.times { insert_tenant(database, Faker::Name.unique.name, Faker::Number.between(1, 28), Faker::Number.number(3), Faker::Boolean.boolean.to_s) }
+10.times { insert_tenant(database, Faker::Name.unique.name, Faker::Number.between(1, 28), Faker::Number.number(3), Faker::Boolean.boolean.to_s) }
 # print_table(database)
 # update_name(database, "Jade Reynolds", "Rainman")
 # update_rent_due(database, "Rainman", 200)

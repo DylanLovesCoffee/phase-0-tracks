@@ -53,10 +53,35 @@ def delete_tenant(db, name)
 end
 
 # DRIVER CODE
-10.times { insert_tenant(database, Faker::Name.unique.name, Faker::Number.between(1, 28), Faker::Number.number(3), Faker::Boolean.boolean.to_s) }
+# 10.times { insert_tenant(database, Faker::Name.unique.name, Faker::Number.between(1, 28), Faker::Number.number(3), Faker::Boolean.boolean.to_s) }
 # print_table(database)
 # update_name(database, "Jade Reynolds", "Rainman")
 # update_rent_due(database, "Rainman", 200)
 # update_rent_paid(database, "Rainman", true)
-delete_tenant(database, "Lilly Leannon")
+# delete_tenant(database, "Lilly Leannon")
+
+# UI
+puts "Welcome! Below are your current tenants:"
 print_table(database)
+puts "Select the number for the following action (type 'quit' to exit):"
+puts "1. Add tenant"
+puts "2. Update tenant name"
+puts "3. Update rent due"
+puts "4. Update rent payment"
+puts "5. Delete entry"
+input = gets.chomp
+
+if input == '1'
+  puts "What is the tenant's full name?"
+  name = gets.chomp
+  puts "What floor is your tenant living on?"
+  floor = gets.chomp
+  puts "How much rent is due?"
+  rent_due = gets.chomp
+  puts "Have they paid their rent? (true/false)"
+  rent_paid = gets.chomp
+  insert_tenant(database, name, floor, rent_due, rent_paid)
+  print_table(database)
+else
+  puts "Please enter a valid number."
+end

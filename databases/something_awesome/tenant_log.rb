@@ -45,10 +45,18 @@ def update_rent_paid(db, name, boolean)
   )
 end
 
+def delete_tenant(db, name)
+  db.execute( <<-SQL
+    DELETE FROM tenants WHERE name="#{name}"
+  SQL
+  )
+end
+
 # DRIVER CODE
 10.times { insert_tenant(database, Faker::Name.unique.name, Faker::Number.between(1, 28), Faker::Number.number(3), Faker::Boolean.boolean.to_s) }
-print_table(database)
-update_name(database, "Jade Reynolds", "Rainman")
-update_rent_due(database, "Rainman", 200)
-update_rent_paid(database, "Rainman", true)
+# print_table(database)
+# update_name(database, "Jade Reynolds", "Rainman")
+# update_rent_due(database, "Rainman", 200)
+# update_rent_paid(database, "Rainman", true)
+delete_tenant(database, "Lilly Leannon")
 print_table(database)

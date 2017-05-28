@@ -62,3 +62,8 @@ get '/:first_number/add/:second_number' do
   sum = params[:first_number].to_i + params[:second_number].to_i
   "#{sum}"
 end
+
+get '/search/:id' do
+  student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]][0])
+  "#{student}"
+end
